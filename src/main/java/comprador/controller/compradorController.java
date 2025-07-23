@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class compradorController {
 
-    @Value("${rabbitmq.venda}")
-    private String venda;
+    @Value("${rabbitmq.compra}")
+    private String compra;
 
     @Autowired
     private compradorService compradorService;
@@ -21,7 +21,7 @@ public class compradorController {
     @PostMapping("/comprador/text")
     public void compradorText(@RequestBody String text) {
         System.out.println("Mensagem" + text);
-        compradorService.compradorTextMessage(text, venda);
+        compradorService.compradorTextMessage(text, compra);
 
     }
 }

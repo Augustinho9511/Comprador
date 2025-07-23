@@ -11,8 +11,8 @@ public class compradorService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void compradorTextMessage(String message, String venda) {
+    public void compradorTextMessage(String message, String compra) {
         System.out.println(message);
-        rabbitTemplate.convertAndSend(venda, message);
+        rabbitTemplate.convertAndSend(compra, message);
     }
 }
