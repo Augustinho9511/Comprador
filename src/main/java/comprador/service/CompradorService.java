@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class compradorService {
+public class CompradorService {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void compradorTextMessage(String message, String compra) {
+    public void compradorTextMessage(String message, String payment) {
         System.out.println(message);
-        rabbitTemplate.convertAndSend(compra, message);
+        rabbitTemplate.convertAndSend(payment, message);
     }
 }

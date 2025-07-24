@@ -1,7 +1,7 @@
 package comprador.controller;
 
 
-import comprador.service.compradorService;
+import comprador.service.CompradorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class compradorController {
+public class CompradorController {
 
-    @Value("${rabbitmq.compra}")
-    private String compra;
+    @Value("${rabbitmq.payment}")
+    private String payment;
 
     @Autowired
-    private compradorService compradorService;
+    private CompradorService compradorService;
 
     @PostMapping("/comprador/text")
     public void compradorText(@RequestBody String text) {
         System.out.println("Mensagem" + text);
-        compradorService.compradorTextMessage(text, compra);
+        compradorService.compradorTextMessage(text, payment);
 
     }
 }
