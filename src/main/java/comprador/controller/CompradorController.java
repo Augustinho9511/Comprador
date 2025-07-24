@@ -22,6 +22,12 @@ public class CompradorController {
     public void compradorText(@RequestBody String text) {
         System.out.println("Mensagem" + text);
         compradorService.compradorTextMessage(text, payment);
+    }
+
+    @PostMapping("/comprador/json")
+    public void compradorJson(@RequestBody String text) {
+        System.out.println("Mensagem" + text);
+        compradorService.compradorJsonMessage(text, payment);
 
     }
 }
